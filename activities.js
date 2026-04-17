@@ -1,6 +1,6 @@
 const express = require('express');
 const { z } = require('zod');
-const { getSupabaseClient } = require('../supabase');
+const { getSupabaseClient } = require('./supabase');
 
 const router = express.Router();
 
