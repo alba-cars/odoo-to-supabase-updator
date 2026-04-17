@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const { log, getLogs, initDB } = require('./src/logger');
+const { requireApiKey } = require('./src/auth');
 const activitiesRouter = require('./routes/activities');
 
 const app = express();
@@ -36,10 +37,8 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-app.use('/activities', activitiesRouter);
-
-// GET /logs — inspect recent request logs
-app.get('/logs', async (req, res) => {
+app.use('/activities', requireApiKey, activitiesRouter);
+app.get('/logs', requireApiKey, async (req, res) => {
   const limit = Math.min(parseInt(req.query.limit) || 100, 500);
   const since = req.query.since; // ISO datetime string
   const entries = await getLogs({ limit, since });
