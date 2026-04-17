@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const { log, getLogs, initDB } = require('./logger');
 const { requireApiKey } = require('./auth');
-const activitiesRouter = require('./routes/activities');
+const activitiesRouter = require('./activities');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
