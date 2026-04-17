@@ -1,0 +1,23 @@
+{
+  "name": "activities-api",
+  "version": "1.0.0",
+  "description": "Express wrapper around Supabase for lead_activities updates",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.103.3",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "sql.js": "^1.14.1",
+    "zod": "^4.3.6"
+  }
+}
